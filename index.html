@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <style>
+div.left {
+    font-weight: bold;
+    font-family: verdana;
+}
+div.inline {
+    font-size: 40px;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-bottom: #ccc 1px solid;
+    margin: 5px;
+    text-align: center;
+}
+        </style>
+    </head>
+    <body>
+        <div id="selected_sentece"></div>
+        <script>
+            window.onload = function (e) {
+                let app = {
+                    status : 'wait_for_key_down',
+                }
+
+                const sentences = [];
+                sentences.push('Se non sai le cose salle!');
+                sentences.push('Do your best and then deal with the conseguences!');
+                sentences.push('Terza frase a caso');
+
+                let sentence = sentences[Math.floor(Math.random()*sentences.length)];
+                let lasKeyLetter = null;
+                let el = window.document.querySelector('#selected_sentece');
+                let targetIndex = 0;
+                let position = 0;
+
+                for (item of sentence) {
+                    let buildElement = document.createElement('div');
+                    buildElement.append(item);
+                    buildElement.classList.add('inline');
+                    buildElement.id = 'letter_' + position;
+                    el.append(buildElement);
+                    position++;
+                }
+
+                window.addEventListener('keydown', function (event) {
+                    if (app.status === 'wait_for_key_down') {
+                        if (
+                            event.keyCode >= 65 && event.keyCode <= 90
+                            || event.keyCode === 32 // " "
+                            || event.keyCode === 49 // "!"
+                            || event.keyCode === 8 // "backslash"
+                        ) {
+                            lasKeyLetter = event.keyCode;
+                            app.status = 'key_pressed';
+                        }
+                    }
+
+                    if (app.status === 'key_pressed') {
+                        if (event.key == sentence[targetIndex]) {
+                            app.status = 'wait_for_key_down';
+                            document.querySelector('#letter_' + targetIndex).classList.add('left');
+                            targetIndex++;
+                        }
+                    }
+
+                    if (event.keyCode === 8) {
+                        targetIndex--;
+                        document.querySelector('#letter_' + targetIndex).classList.remove('left');
+                    }
+
+                    if (sentence.length == targetIndex) {
+                        document.location.reload();
+                    }
+                });
+
+            }
+        </script>
+    </body>
+</html>
