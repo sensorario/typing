@@ -25,9 +25,13 @@ div.inline {
                 }
 
                 const sentences = [];
-                sentences.push('Se non sai le cose salle!');
-                sentences.push('Do your best and then deal with the conseguences!');
-                sentences.push('Terza frase a caso');
+                sentences.push('Glib jocks quiz nymph to vex dwarf.');
+                sentences.push('How vexingly quick daft zebras jump!');
+                sentences.push('Jived fox nymph grabs quick waltz.');
+                sentences.push('Pack my box with five dozen liquor jugs.');
+                sentences.push('Sphinx of black quartz, judge my vow.');
+                sentences.push('The five boxing wizards jump quickly.');
+                sentences.push('The quick brown fox jumps over the lazy dog.');
 
                 let sentence = sentences[Math.floor(Math.random()*sentences.length)];
                 let lasKeyLetter = null;
@@ -51,9 +55,15 @@ div.inline {
                             || event.keyCode === 32 // " "
                             || event.keyCode === 49 // "!"
                             || event.keyCode === 8 // "backslash"
+                            || event.keyCode === 188 // ","
+                            || event.keyCode === 190 // "."
                         ) {
                             lasKeyLetter = event.keyCode;
                             app.status = 'key_pressed';
+                        } else {
+                            console.log(
+                                'unexpected ' + event.keyCode + ' (' + event.key + ')'
+                            );
                         }
                     }
 
@@ -62,6 +72,11 @@ div.inline {
                             app.status = 'wait_for_key_down';
                             document.querySelector('#letter_' + targetIndex).classList.add('left');
                             targetIndex++;
+                        } else {
+                            console.log(
+                                'expected ' + sentence[targetIndex]
+                                + ' but got ' + event.key
+                            );
                         }
                     }
 
