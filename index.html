@@ -1,6 +1,19 @@
 <html>
     <head>
         <style>
+            #expected_letter {
+                margin: auto;
+                width: 40px;
+                height: 40px;
+                border: #ccc 1px solid;
+                font-size: 40px;
+                text-align: center;
+                clear: both;
+            }
+            #selected_sentece {
+                margin: auto;
+                width: 800px;
+            }
             div.left {
                 font-weight: bold;
                 font-family: verdana;
@@ -18,7 +31,9 @@
     </head>
     <body>
 
+        <div id="expected_letter"></div>
         <div id="selected_sentece"></div>
+
         <script>
             window.onload = function (e) {
                 let app = {
@@ -39,6 +54,8 @@
                 let el = window.document.querySelector('#selected_sentece');
                 let targetIndex = 0;
                 let position = 0;
+
+                document.querySelector('#expected_letter').innerText = sentence[targetIndex];
 
                 for (item of sentence) {
                     let buildElement = document.createElement('div');
@@ -78,6 +95,7 @@
                             app.status = 'wait_for_key_down';
                             document.querySelector('#letter_' + targetIndex).classList.add('left');
                             targetIndex++;
+                            document.querySelector('#expected_letter').innerText = sentence[targetIndex];
                         } else {
                             console.log(
                                 'expected ' + sentence[targetIndex]
