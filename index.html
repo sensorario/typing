@@ -36,9 +36,6 @@
 
         <script>
             window.onload = function (e) {
-                let app = {
-                    status : 'wait_for_key_down',
-                }
 
                 const sentences = [];
                 sentences.push('Glib jocks quiz nymph to vex dwarf.');
@@ -49,6 +46,7 @@
                 sentences.push('The five boxing wizards jump quickly.');
                 sentences.push('The quick brown fox jumps over the lazy dog.');
 
+                let status = 'wait_for_key_down';
                 let sentence = sentences[Math.floor(Math.random()*sentences.length)];
                 let lasKeyLetter = null;
                 let el = window.document.querySelector('#selected_sentece');
@@ -67,7 +65,7 @@
                 }
 
                 window.addEventListener('keydown', function (event) {
-                    if (app.status === 'wait_for_key_down') {
+                    if (status === 'wait_for_key_down') {
                         if (
                             event.keyCode >= 65 && event.keyCode <= 90
                             || event.keyCode === 32 // " "
@@ -77,7 +75,7 @@
                             || event.keyCode === 190 // "."
                         ) {
                             lasKeyLetter = event.keyCode;
-                            app.status = 'key_pressed';
+                            status = 'key_pressed';
                         } else {
                             if (
                                 event.keyCode !== 16 // "Shift"
@@ -90,9 +88,9 @@
                         }
                     }
 
-                    if (app.status === 'key_pressed') {
+                    if (status === 'key_pressed') {
                         if (event.key == sentence[targetIndex]) {
-                            app.status = 'wait_for_key_down';
+                            status = 'wait_for_key_down';
                             document.querySelector('#letter_' + targetIndex).classList.add('left');
                             targetIndex++;
                             document.querySelector('#expected_letter').innerText = sentence[targetIndex];
