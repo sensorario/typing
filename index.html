@@ -64,10 +64,10 @@
                         } else {
                             if (
                                 event.keyCode !== 16 // "Shift"
-                                || event.keyCode !== 9 // "Tab"
+                                && event.keyCode !== 9 // "Tab"
                             ) {
                                 console.log(
-                                    'unexpected ' + event.keyCode + ' (' + event.key + ')'
+                                    'unhexpected ' + event.keyCode + ' (' + event.key + ')'
                                 );
                             }
                         }
