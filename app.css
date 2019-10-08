@@ -49,7 +49,7 @@ div.inline {
 }
 
 #wrong_letters {
-    background: darkred;
+    background: #ddd;
     clear: both;
     font-size: 30px;
     margin: auto;
