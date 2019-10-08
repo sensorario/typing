@@ -6,6 +6,7 @@
 
         <div id="expected_letter"></div>
         <div id="selected_sentece"></div>
+        <div id="wrong_letters"></div>
 
         <script>
             window.onload = function (e) {
@@ -68,10 +69,14 @@
                             targetIndex++;
                             document.querySelector('#expected_letter').innerText = sentence[targetIndex];
                         } else {
-                            console.log(
-                                'expected ' + sentence[targetIndex]
-                                + ' but got ' + event.key
-                            );
+                            let id = 'wrong_letter_' + sentence[targetIndex];
+                            if (!document.getElementById(id)) {
+                                let err = document.createElement('div')
+                                err.id = id;
+                                err.innerText = sentence[targetIndex];
+                                let wl = window.document.querySelector('#wrong_letters');
+                                wl.append(err);
+                            }
                         }
                     }
 

@@ -27,3 +27,51 @@ div.inline {
     margin: 5px;
     text-align: center;
 }
+
+#wrong_letters {
+    background: red;
+    width: 800px;
+    height: 40px;
+    margin: auto;
+    clear: both;
+}
+
+#wrong_letters div {
+    display: inline;
+    font-size: 40px;
+    text-align: center;
+    clear: both;
+}
+
+#selected_sentece {
+    margin: auto;
+    width: 800px;
+}
+
+div.left {
+    font-weight: bold;
+    font-family: verdana;
+}
+
+div.inline {
+    font-size: 40px;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-bottom: #ccc 1px solid;
+    margin: 5px;
+    text-align: center;
+}
+
+#wrong_letters {
+    background: red;
+    width: 800px;
+    height: 40px;
+    margin: auto;
+    clear: both;
+}
+
+#wrong_letters div {
+    display: inline;
+}
+}
