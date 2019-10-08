@@ -1,11 +1,11 @@
 #expected_letter {
-    margin: auto;
-    width: 40px;
-    height: 40px;
     border: #ccc 1px solid;
-    font-size: 40px;
-    text-align: center;
     clear: both;
+    font-size: 40px;
+    height: 40px;
+    margin: auto;
+    text-align: center;
+    width: 40px;
 }
 
 #selected_sentece {
@@ -28,50 +28,44 @@ div.inline {
     text-align: center;
 }
 
-#wrong_letters {
-    background: red;
-    width: 800px;
-    height: 40px;
-    margin: auto;
-    clear: both;
-}
-
-#wrong_letters div {
-    display: inline;
-    font-size: 40px;
-    text-align: center;
-    clear: both;
-}
-
 #selected_sentece {
     margin: auto;
     width: 800px;
 }
 
 div.left {
-    font-weight: bold;
     font-family: verdana;
+    font-weight: bold;
 }
 
 div.inline {
-    font-size: 40px;
-    float: left;
-    width: 40px;
-    height: 40px;
     border-bottom: #ccc 1px solid;
+    float: left;
+    font-size: 40px;
+    height: 40px;
     margin: 5px;
     text-align: center;
+    width: 40px;
 }
 
 #wrong_letters {
-    background: red;
-    width: 800px;
-    height: 40px;
-    margin: auto;
+    background: darkred;
     clear: both;
+    font-size: 30px;
+    margin: auto;
+    text-align: center;
+    width: 800px;
+    padding: 10px;
+    height: 50px;
 }
 
 #wrong_letters div {
+    border: #fff 1px solid;
     display: inline;
-}
+    color: white;
+    font-family: verdana;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 5px;
 }
