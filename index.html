@@ -4,15 +4,12 @@
         <script async defer src="https://buttons.github.io/buttons.js"></script>
     </head>
     <body>
-
         <div id="expected_letter"></div>
         <div id="selected_sentece"></div>
         <div id="wrong_letters"></div>
-
         <div id="github_stuffs">
             <a class="github-button" href="https://github.com/sensorario/typing/subscription" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" data-show-count="true" aria-label="Watch sensorario/typing on GitHub">Watch</a>
         </div>
-
         <script>
             window.onload = function (e) {
 
@@ -72,7 +69,6 @@
                             status = 'wait_for_key_down';
                             document.querySelector('#letter_' + targetIndex).classList.add('left');
                             targetIndex++;
-                            document.querySelector('#expected_letter').innerText = sentence[targetIndex];
                         } else {
                             let idString = 'wrong_letter_' + sentence[targetIndex];
                             if (!document.getElementById(idString)) {
@@ -86,12 +82,14 @@
                         }
                     }
 
-                    if (event.keyCode === 8) {
+                    if (event.keyCode === 8) { // backslash
                         targetIndex--;
                         document.querySelector('#letter_' + targetIndex).classList.remove('left');
                     }
 
-                    if (sentence.length == targetIndex) {
+                    if (sentence.length > targetIndex) {
+                        document.querySelector('#expected_letter').innerText = sentence[targetIndex];
+                    } else {
                         document.location.reload();
                     }
                 });
@@ -99,15 +97,12 @@
             }
         </script>
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149384970-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
           gtag('config', 'UA-149384970-1');
         </script>
-
     </body>
 </html>
