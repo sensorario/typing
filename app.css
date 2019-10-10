@@ -11,6 +11,7 @@
 #selected_sentece {
     margin: auto;
     width: 800px;
+    font-family: verdana;
 }
 
 div.left {
@@ -26,11 +27,6 @@ div.inline {
     border-bottom: #ccc 1px solid;
     margin: 5px;
     text-align: center;
-}
-
-#selected_sentece {
-    margin: auto;
-    width: 800px;
 }
 
 div.left {
