@@ -72,6 +72,8 @@
                             targetIndex++;
                         } else {
                             let idString = 'wrong_letter_' + sentence[targetIndex];
+                            document.querySelector('#letter_' + targetIndex).classList.add('mistake');
+
                             if (!document.getElementById(idString)) {
                                 let err = document.createElement('div')
                                 err.id = idString;

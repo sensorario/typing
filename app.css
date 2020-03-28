@@ -72,3 +72,7 @@ div.inline {
     margin-top: 10px;
     text-align: center;
 }
+
+.mistake {
+    background-color: red;
+}
