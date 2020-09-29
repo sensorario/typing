@@ -83,8 +83,10 @@
                                 errors = JSON.parse(errors);
                                 console.log('parsed');
                             }
+                            console.log('prima');
                             console.log(errors);
-                            errors[sentence[targetIndex]] = 1;
+                            errors.push(sentence[targetIndex]);
+                            console.log('dopo');
                             console.log(errors);
                             Cookies.set('errors', errors);
 
