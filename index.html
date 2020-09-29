@@ -74,6 +74,11 @@
                             let idString = 'wrong_letter_' + sentence[targetIndex];
                             document.querySelector('#letter_' + targetIndex).classList.add('mistake');
 
+                            let errors = Cookies.get('errors');
+                            if (errors === undefined) { errors = []; }
+                            errors.push(sentence[targetIndex]);
+                            Cookies.set('errors', errors);
+
                             if (!document.getElementById(idString)) {
                                 let err = document.createElement('div')
                                 err.id = idString;
@@ -100,6 +105,7 @@
             }
         </script>
 
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149384970-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
