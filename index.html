@@ -77,7 +77,7 @@
                             let errors = Cookies.get('errors');
                             if (errors === undefined) { errors = []; }
                             errors.push(sentence[targetIndex]);
-                            Cookies.set('errors', JSON.serialize(errors));
+                            Cookies.set('errors', JSON.stringify(errors));
 
                             if (!document.getElementById(idString)) {
                                 let err = document.createElement('div')
