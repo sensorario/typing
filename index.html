@@ -76,7 +76,7 @@
 
                             let errors = Cookies.get('errors');
 
-                            if (errors === undefined) { errors = []; } else { JSON.parse(errors); }
+                            if (errors === undefined) { errors = []; } else { errors = JSON.parse(errors); }
 
                             errors[sentence[targetIndex]] = 1;
                             console.log(JSON.stringify(errors));
