@@ -76,9 +76,12 @@
 
                             let errors = Cookies.get('errors');
                             if (errors === undefined) { errors = []; }
-                            errors.push(sentence[targetIndex]);
+
+                            errors[sentence[targetIndex]] = 1;
                             console.log(JSON.stringify(errors));
-                            Cookies.set('errors', JSON.stringify(errors));
+                            console.log(errors);
+
+                            Cookies.set('errors', errors);
 
                             if (!document.getElementById(idString)) {
                                 let err = document.createElement('div')
