@@ -75,7 +75,8 @@
                             document.querySelector('#letter_' + targetIndex).classList.add('mistake');
 
                             let errors = Cookies.get('errors');
-                            if (errors === undefined) { errors = []; }
+
+                            if (errors === undefined) { errors = []; } else { JSON.parse(errors); }
 
                             errors[sentence[targetIndex]] = 1;
                             console.log(JSON.stringify(errors));
